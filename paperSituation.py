@@ -9,7 +9,6 @@ from paperObjects import Robot, Product, Warehouse
 import numpy as np
 
 def main():
-    print ("hello")
     robot1 = Robot("R1", 527, [0,0])
     robot2 = Robot("R2", 494, [0,0])
     robot3 = Robot("R3", 439, [0,0])
