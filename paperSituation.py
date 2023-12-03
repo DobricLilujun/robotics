@@ -10,8 +10,8 @@ import numpy as np
 
 def main():
     robot1 = Robot("R1", 527, [0,0])
-    robot2 = Robot("R2", 494, [0,0])
-    robot3 = Robot("R3", 439, [0,0])
+    robot2 = Robot("R2", 494, [0,1])
+    robot3 = Robot("R3", 439, [0,2])
 
     product1 = Product("P1", 181, [2,0])
     product2 = Product("P2", 196, [2,3])
