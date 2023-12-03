@@ -42,8 +42,7 @@ class Warehouse:
             robot.initialization()
             
         
-        
-        
+
     def display(self, backgroundColor = 0.95, shelvesColor = 0.5):
         fig, ax = plt.subplots()
         
@@ -74,6 +73,6 @@ class Warehouse:
             for j in range(width):
                 ax.text(j, i, elementLocations[i][j], ha='center', va='center', color='black')
         
-        
+        plt.show()
             
         
