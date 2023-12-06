@@ -4,7 +4,7 @@ public abstract class GeoFigure
 	
 }
 
-class Rect extends GeoFigure		
+class Rect extends GeoFigure			//长方形
 {
 	double x;
 	double y;
@@ -35,7 +35,7 @@ class Rect extends GeoFigure
 	
 }
 
-class Polygon extends GeoFigure			
+class Polygon extends GeoFigure				//多边形
 {
 	double Points[][];
 	
@@ -83,7 +83,7 @@ class Polygon extends GeoFigure
 	}
 }
 
-class Circle extends GeoFigure			
+class Circle extends GeoFigure				//圆形
 {
 	double x;
 	double y;
@@ -97,7 +97,7 @@ class Circle extends GeoFigure
 	
 }
 
-class Segment extends GeoFigure			
+class Segment extends GeoFigure				//线段
 {
 	double x1;
 	double y1;
@@ -123,7 +123,7 @@ class Segment extends GeoFigure
 	}
 }
 
-class ellipse extends GeoFigure				
+class ellipse extends GeoFigure					 //椭圆
 {
 	double x;
 	double y;

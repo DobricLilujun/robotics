@@ -76,6 +76,43 @@ class Warehouse:
                 ax.text(j, i, elementLocations[i][j], ha='center', va='center', color='black')
         
         plt.show()
+
+    def display_path(self, path, backgroundColor=0.95, shelvesColor=0.5):
+        fig, ax = plt.subplots()
+
+        # Display the shelves in gray and the paths in white
+        colorMatrix = backgroundColor + self.map * (shelvesColor - 1)
+        ax.imshow(colorMatrix, cmap='gray', vmin=0, vmax=1)
+
+        # Add products locations
+        length = len(self.map)
+        width = len(self.map[0])
+        elementLocations = [[None for i in range(width)] for i in range(length)]
+        ax.set_xticks(np.arange(-0.5, width, 1), minor=True)
+        ax.set_yticks(np.arange(-0.5, length, 1), minor=True)
+        ax.grid(which="minor", color="gray", linewidth=0.1)
+
+        for productName in self.products:
+            product = self.products[productName]
+            elementLocations[product.storageLocation[0]][product.storageLocation[1]] = productName
+
+        for robotName in self.robots:
+            robot = self.robots[robotName]
+            position = robot.location
+            elementLocations[position[0]][position[1]] = robotName
+            cercle = patches.Circle((position[1], position[0]), 0.4, facecolor='orange')
+            ax.add_patch(cercle)
+
+        # Display the path on the map
+        for step in path:
+            ax.add_patch(patches.Rectangle((step[1] - 0.5, step[0] - 0.5), 1, 1, linewidth=2, edgecolor='green'))
+
+        # Display the elements on the map
+        for i in range(length):
+            for j in range(width):
+                ax.text(j, i, elementLocations[i][j], ha='center', va='center', color='black')
+
+        plt.show()
             
 
 # Function to generate random products

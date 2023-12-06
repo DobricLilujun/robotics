@@ -22,7 +22,7 @@ public class Astar extends Algorithm
 			return false;
 		}
 	}
-	public static double Cal_HX(LinkedList<Node_cube> guide,Node a,Graph graph)
+	public static double Cal_HX(LinkedList<Node_cube> guide,Node a,Graph graph)//开始编计算HX的函数
 	{
 		int flag = 0;
 		double HX = 0;

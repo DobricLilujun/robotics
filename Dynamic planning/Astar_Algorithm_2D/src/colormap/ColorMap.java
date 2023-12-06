@@ -21,6 +21,7 @@ public class ColorMap
 		cmap = null;
 	}
 	
+	// Éú³Éº£ÑóµÄÉ«²ÊÓ³Éä
 	public void sea(int n)
 	{
 		length = n;
@@ -39,6 +40,7 @@ public class ColorMap
 		cmap = cmap_sea;
 	}
 	
+	// Éú³ÉÂ½µØµÄÉ«²ÊÓ³Éä
 	public void land(int n)
 	{
 		length = n;
@@ -310,7 +312,7 @@ public class ColorMap
 			}
 			int right = left + 1;
 			
-			// ï¿½ï¿½ï¿½Ã²ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½Ç°ï¿½ß¶È¶ï¿½Ó¦ï¿½ï¿½É«ï¿½ï¿½
+			// ÀûÓÃ²åÖµ·½·¨ÕÒ³öµ±Ç°¸ß¶È¶ÔÓ¦µÄÉ«²Ê
 			int R =  (int)( ((it-left) * (C[right][0] - C[left][0]) + C[left][0])*255 );
 			int G =  (int)( ((it-left) * (C[right][1] - C[left][1]) + C[left][1])*255 );
 			int B =  (int)( ((it-left) * (C[right][2] - C[left][2]) + C[left][2])*255 );
@@ -319,7 +321,7 @@ public class ColorMap
 		cmap = cmap_land;
 	}
 	
-	// ï¿½ï¿½ï¿½ï¿½ Matlab ï¿½ï¿½Ä¬ï¿½Ïµï¿½É«ï¿½ï¿½Ó³ï¿½ï¿½
+	// Éú³É Matlab ÖÐÄ¬ÈÏµÄÉ«²ÊÓ³Éä
 	public void parula(int n)
 	{
 		length = n;
@@ -598,7 +600,7 @@ public class ColorMap
 		}
 	}
 	
-	// ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ jet É«ï¿½ï¿½Ó³ï¿½ï¿½
+	// Éú³É¾­µäµÄ jet É«²ÊÓ³Éä
 	public void jet(int n)
 	{
 		length = n;
@@ -613,14 +615,14 @@ public class ColorMap
 		}
 	}
 	
-	// ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½Í¼ï¿½ï¿½É«ï¿½ï¿½Ó³ï¿½ï¿½
+	// Éú³ÉµØÐÎÍ¼µÄÉ«²ÊÓ³Éä
 	public void demcmap(int n)
 	{
 		sea(n);
 		land(n);
 	}
 	
-	// ï¿½ï¿½ï¿½Ý¸ß¶ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½É«
+	// ¸ù¾Ý¸ß¶ÈÖµ¼ÆËã¶ÔÓ¦µÄÑÕÉ«
 	public int getRGB(double z) throws Exception
 	{
 		if(z < zmin)

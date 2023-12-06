@@ -39,7 +39,7 @@ public class Graph
 //		}
 //	}
 
-	public static boolean isInGraph(Node a,Graph graph)						
+	public static boolean isInGraph(Node a,Graph graph)						//判断点是否在地图中
 	{
 		if(((a.x<=graph.x0+graph.xlength)&&(a.x>=graph.x0))&&((a.y<=graph.y0+graph.ylength)&&(a.y>=graph.y0)))
 		{
@@ -64,8 +64,8 @@ public class Graph
 		}
 	}
 	
-	public static boolean isInSegment(Node a,double points[][])				
-		
+	public static boolean isInSegment(Node a,double points[][])				//判断点是否在线段上
+		//判断点是否在线段上
 	{
 		Node temp1 = new Node(points[0][0]-a.x,points[1][0]-a.y);
 		Node temp2 = new Node(points[0][1]-a.x,points[1][1]-a.y);
@@ -84,7 +84,7 @@ public class Graph
 		return false;
 	}
 	
-	public static boolean isInPolygon(Node a,double points[][])				
+	public static boolean isInPolygon(Node a,double points[][])				//判断点是否在多边形内部
 	{
 		int crossings = 0;
 		if(points[0].length<3)
@@ -105,7 +105,7 @@ public class Graph
 		temp_points[0][points[0].length+1] = points[0][1];
 		temp_points[1][points[0].length+1] = points[1][1];
 		temp_points[0][points[0].length+2] = points[0][2];
-		temp_points[1][points[0].length+2] = points[1][2];			
+		temp_points[1][points[0].length+2] = points[1][2];			//形成临时的点集用来简化代码。
 		
 		for (int i = 0 ; i< points[0].length;i++)
 		{
@@ -118,11 +118,11 @@ public class Graph
 				return true;
 			}
 		}
-		for(int i=0;i<points[0].length;i++)							
+		for(int i=0;i<points[0].length;i++)							//对多边形每一条线段进行迭代	
 		{
 //			System.out.println("i am here");
 //			System.out.println(crossings);
-			if(temp_points[0][i+1]==temp_points[0][i])														
+			if(temp_points[0][i+1]==temp_points[0][i])				//判断斜率为无穷										
 			{
 				if(a.x == temp_points[0][i])
 				{
@@ -207,7 +207,7 @@ public class Graph
 		}
 	}
 
-	public static boolean isCrossSegment(double seg1[][],double seg2[][])	
+	public static boolean isCrossSegment(double seg1[][],double seg2[][])	//判断线段和线段的相交
 	{
 
 //			Node a = new Node(seg1[0][0]-seg2[0][0],seg1[1][0]-seg2[1][0]);
@@ -221,13 +221,13 @@ public class Graph
 			double T2 = Node.cross_product(A1, A2, B2);
 			double T3 = Node.cross_product(B1, B2, A1);
 			double T4 = Node.cross_product(B1, B2, A2);
-			if( ((T1*T2) > 0) || ((T3*T4) > 0) )
+			if( ((T1*T2) > 0) || ((T3*T4) > 0) )//跨立实验
 			{
 				return false;
 			}
 			else if((T1 == 0) && (T2 == 0))
 			{
-												
+												//快速排斥实验
 				if ( Math.min(A1.y, A2.y) <= Math.max(B1.y, B2.y) && Math.max(A1.y, A2.y) >= Math.min(B1.y, B2.y) &&
 				     Math.min(A1.x, A2.x) <= Math.max(B1.x, B2.x) && Math.max(A1.x, A2.x) >= Math.min(B1.x, B2.x)
 				   ) 
@@ -245,7 +245,7 @@ public class Graph
 			}
 	}
 	
-	public static boolean isCrossSegment(Segment seg1,Segment seg2)	
+	public static boolean isCrossSegment(Segment seg1,Segment seg2)	//判断线段和线段的相交
 	{
 
 //			Node a = new Node(seg1[0][0]-seg2[0][0],seg1[1][0]-seg2[1][0]);
@@ -259,13 +259,13 @@ public class Graph
 			double T2 = Node.cross_product(A1, A2, B2);
 			double T3 = Node.cross_product(B1, B2, A1);
 			double T4 = Node.cross_product(B1, B2, A2);
-			if( ((T1*T2) > 0) || ((T3*T4) > 0) )
+			if( ((T1*T2) > 0) || ((T3*T4) > 0) )//跨立实验
 			{
 				return false;
 			}
 			else if((T1 == 0) && (T2 == 0))
 			{
-												
+												//快速排斥实验
 				if ( Math.min(A1.y, A2.y) <= Math.max(B1.y, B2.y) && Math.max(A1.y, A2.y) >= Math.min(B1.y, B2.y) &&
 				     Math.min(A1.x, A2.x) <= Math.max(B1.x, B2.x) && Math.max(A1.x, A2.x) >= Math.min(B1.x, B2.x)
 				   ) 
@@ -283,7 +283,7 @@ public class Graph
 			}
 	}
 	
-	public static double  minDistance(Node point,Segment L)					
+	public static double  minDistance(Node point,Segment L)					//求点到线段的最小距离
 	{
 		double distance_min = 0;
 		
@@ -295,34 +295,34 @@ public class Graph
 	    b = Node.distance(p1, p);
 	    c = Node.distance(p2, p);
 	    if (c+b==a) 
-	    {
+	    {//点在线段上
 	    	distance_min = 0;
 	    }
 	    
 	    else if (a<=0.00001) 
-	    {
+	    {//不是线段，是一个点
 	    	distance_min = b;
 	    }
 	    
-	    else if (c*c >= a*a + b*b) { 
+	    else if (c*c >= a*a + b*b) { //组成直角三角形或钝角三角形，p1为直角或钝角
 	    	distance_min = b;
 	    }
 	    
 	    else if (b * b >= a * a + c * c) 
-	    {
+	    {// 组成直角三角形或钝角三角形，p2为直角或钝角
 	    	distance_min = c;
 	    }
 	    else
 	    {
-		    
-		    double p0 = (a + b + c) / 2;
-		    double s = Math.sqrt(p0 * (p0 - a) * (p0 - b) * (p0 - c));
-		    distance_min = 2*s / a;
+		    // 组成锐角三角形，则求三角形的高
+		    double p0 = (a + b + c) / 2;// 半周长
+		    double s = Math.sqrt(p0 * (p0 - a) * (p0 - b) * (p0 - c));// 海伦公式求面积
+		    distance_min = 2*s / a;// 返回点到线的距离（利用三角形面积公式求高）
 	    }
 	    return distance_min;
 	}
 	
-	public static boolean isCrossCircle(Circle C,Segment L)					
+	public static boolean isCrossCircle(Circle C,Segment L)					//判断线段和圆相交
 	{
 		Node point = new Node (C.x,C.y);
 	
@@ -387,7 +387,7 @@ public class Graph
 	}
 	
 	
-	public static boolean isCrossEllipse(ellipse C,Segment L)					
+	public static boolean isCrossEllipse(ellipse C,Segment L)					//判断线段和圆相交
 	{
 		Rect temp= ellipse.Conver(C);
 		Polygon temp2 = new Polygon(Rect.Conver(temp));

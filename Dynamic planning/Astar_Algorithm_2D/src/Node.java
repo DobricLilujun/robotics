@@ -23,7 +23,7 @@ public class Node
 		this.isopen = false;
 		this.isclose = false;
 	}
-	public static double cross_product(Node A,Node B,Node C)
+	public static double cross_product(Node A,Node B,Node C)//定义叉乘运算AC叉乘AB
 	{
 		
 		double cross1 = (C.x - A.x) * (B.y - A.y);
@@ -32,14 +32,14 @@ public class Node
 		
 	}
 
-	public static double cross_product(Node a,Node b)
+	public static double cross_product(Node a,Node b)//定义叉乘运算
 	{
 		
 		return (a.x*b.y-a.y*b.x);
 		
 	}
 	
-	public static double distance(Node p, Node p1) 	
+	public static double distance(Node p, Node p1) 	 //判断点和点之间的距离
 	{
 	    return Math.hypot(p.x-p1.x, p.y-p1.y);
 	}
