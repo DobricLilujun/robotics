@@ -1,13 +1,11 @@
 import heapq
-from paperObjects import    
-
+import paperObjects
 class AStar:
     def __init__(self, warehouse):
         self.warehouse = warehouse
         self.visited = set()
 
     def heuristic(self, current, goal):
-        # A simple heuristic function (Euclidean distance)
         return ((current[0] - goal[0]) ** 2 + (current[1] - goal[1]) ** 2) ** 0.5
 
     def get_neighbors(self, position):
@@ -15,7 +13,7 @@ class AStar:
         for i, j in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             neighbor = (position[0] + i, position[1] + j)
             if 0 <= neighbor[0] < len(self.warehouse.map) and 0 <= neighbor[1] < len(self.warehouse.map[0]):
-                if self.warehouse.map[neighbor[0]][neighbor[1]] == 0:  # Check if it's a valid path
+                if self.warehouse.map[neighbor[0]][neighbor[1]] == 0:
                     neighbors.append(neighbor)
         return neighbors
 
