@@ -5,8 +5,10 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+// Astar class extending Algorithm
 public class Astar extends Algorithm {
 
+	// Method to check if two nodes are equal
 	public boolean equals(Node a, Node b) {
 		if ((a.x == b.x) && (a.y == b.y)) {
 			return true;
@@ -15,6 +17,7 @@ public class Astar extends Algorithm {
 		}
 	}
 
+	// Method to check if a given position is admissible on the graph
 	public static boolean isAdmissible(int x0, int y0, Graph graph) {
 		if ((x0 < 0) || (x0 >= graph.xlength) || (y0 < 0) || (y0 >= graph.ylength)) {
 			return false;
@@ -27,6 +30,7 @@ public class Astar extends Algorithm {
 		}
 	}
 
+	// Method to perform bubble sort on a linked list based on Manhattan distance
 	public static LinkedList<Node> bubbleSort_M(LinkedList<Node> linkedlist) {
 		for (int i = 0; i < linkedlist.size() - 1; i++) {
 			if (linkedlist.get(i).fx < linkedlist.get(i + 1).fx) {
@@ -44,6 +48,7 @@ public class Astar extends Algorithm {
 		return linkedlist;
 	}
 
+	// Method to perform bubble sort on a linked list based on Chebyshev distance
 	public static LinkedList<Node> bubbleSort_C(LinkedList<Node> linkedlist) {
 		for (int i = 0; i < linkedlist.size() - 1; i++) {
 			if (linkedlist.get(i).Fx < linkedlist.get(i + 1).Fx) {
@@ -65,6 +70,7 @@ public class Astar extends Algorithm {
 
 	}
 
+	// Method to find the real Gx value for a given node
 	public static double findRealGx(Node node) {
 		double distance = 0;
 		Node temp = node;
@@ -81,6 +87,7 @@ public class Astar extends Algorithm {
 		return distance;
 	}
 
+	// Method to find the real trace of a given node
 	public LinkedList<Node> findRealTrace(Node node) {
 		LinkedList<Node> trace = new LinkedList<>();
 		Node temp = node;
@@ -91,6 +98,7 @@ public class Astar extends Algorithm {
 		return trace;
 	}
 
+	// A* algorithm implementation using Manhattan distance
 	ArrayList<LinkedList<Node>> Astar_Manhattan(Graph graph) {
 		LinkedList<Node> openlist = new LinkedList<>();
 		LinkedList<Node> closelist = new LinkedList<>();
@@ -193,6 +201,7 @@ public class Astar extends Algorithm {
 		return array;
 	}
 
+	// A* algorithm implementation using Chebyshev distance
 	public ArrayList<LinkedList<Node>> Astar_Chebyshev(Graph graph) {
 		LinkedList<Node> openlist = new LinkedList<>();
 		LinkedList<Node> closelist = new LinkedList<>();

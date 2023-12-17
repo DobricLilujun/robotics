@@ -9,6 +9,7 @@ public class Main extends Astar {
 
 	public static void main(String[] args) {
 
+		// Define the obtstacles in the graph
 		int obs_error[][] = { { 1, 1 },
 				{ 2, 1 },
 				{ 3, 1 },

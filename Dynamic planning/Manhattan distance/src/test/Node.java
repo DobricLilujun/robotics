@@ -1,7 +1,6 @@
 package test;
 
-public class Node 
-{
+public class Node {
 	public int x;
 	public int y;
 	public double fx;
@@ -15,23 +14,16 @@ public class Node
 	public boolean isclose;
 	public boolean isobstacle;
 
-	public Node(int x,int y)
-	{
-		if (x>=0)
-		{
+	public Node(int x, int y) {
+		if (x >= 0) {
 			this.x = x;
-		}
-		else
-		{
+		} else {
 			System.out.println("This node'coordinate is not in the graph.");
 			System.exit(-1);
 		}
-		if (y>=0)
-		{
+		if (y >= 0) {
 			this.y = y;
-		}
-		else
-		{
+		} else {
 			System.out.println("This node'coordinate is not in the graph.");
 			System.exit(-1);
 		}
