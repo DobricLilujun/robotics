@@ -11,4 +11,3 @@ import networkx as nx
 
 warehouse = paperSituation()
 warehouse.assignTasks(iterationMax = 20)
-
