@@ -1,12 +1,12 @@
 # robotics
 
-This is a robotic project for both path planning and task assignment in the warehouse. 
+This is a robotic project for both task assignment and path planning in the warehouse. 
 
 <img src="https://raw.githubusercontent.com/DobricLilujun/imagesAll/main/imagesPrL8ZzUidAf-qijcduAjwkVHDp_OPYfp3ee8K7V3_9-FJP6Vuq9eu6NLLIZxnSpi8e87UqS8INduzLG8wiepMS41LsTkv0PXcou0fKelBO3Plh_Pe_pU-DbQVAiOfeT6I7H25MKpaacXxFJ8zC6tW8ZKjA%3Ds2048" alt="img" style="zoom:33%;" />
 
 
 
-## Demo global in Task assignment and A\* path planning**
+## Demo global in Task assignment and A\* path planning in python
 
 To see a demo of the code, run the file demo.py. You can change the situation by editing example Situation. Further work have been given on A* algorithm in the correspond
 ding folder.
